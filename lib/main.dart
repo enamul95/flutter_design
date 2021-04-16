@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_design/sliverappbar/slibar_app_bar3.dart';
+import 'package:flutter_design/sliverappbar/sliver_app_bar2.dart';
 import 'package:flutter_design/tab/bottom_tab.dart';
+import 'package:flutter_design/sliverappbar/sliver_app_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,7 +27,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: BottomTab(),
+      // home: BottomTab(),
+      home: SliverAppBarDesign3(),
     );
   }
 }
