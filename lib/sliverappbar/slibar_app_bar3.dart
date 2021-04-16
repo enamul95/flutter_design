@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_design/sliverappbar/my_appbar.dart';
 import 'package:flutter_design/sliverappbar/myflexibale_app_bar.dart';
+import 'package:flutter_design/sliverappbar/persistent_header.dart';
+import 'package:flutter_design/sliverappbar/resturant_persitance_header.dart';
+import 'package:flutter_design/util/mycolor.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
 class SliverAppBarDesign3 extends StatefulWidget {
@@ -34,17 +37,72 @@ class _SliverAppBarSate extends State<SliverAppBarDesign3> {
               ),
             ),
           ),
+          // SliverAppBar(
+          //     // title: Text("App bar"),
+          //     ),
+          // //162832
+          restuantSliverPersistentHeader(),
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: PersistentHeader(
+              widget: Row(
+                children: <Widget>[
+                 
+                ],
+              ),
+            ),
+          ),
+          /*
           SliverAppBar(
-            title: MyAppBar2(),
             backgroundColor: Colors.white,
+            centerTitle: false,
             pinned: true,
             forceElevated: true,
             floating: true,
-            // Make the initial height of the SliverAppBar larger than normal
             expandedHeight: 200,
-            brightness: Brightness.light,
-            flexibleSpace: FlexibleSpaceBar(),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Dosa Bhai Donia, Dhaka 11",
+                  style: TextStyle(color: Colors.amber),
+                ),
+                Text("From Deserts. cold Beverages. Juice..",
+                    style: TextStyle(color: Colors.amber)),
+              ],
+            ),
+            
+
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Dosa Bhai Donia, Dhaka 11",
+                      style: TextStyle(color: Colors.amber),
+                    ),
+                    Text("From Deserts. cold Beverages. Juice..",
+                        style: TextStyle(color: Colors.amber)),
+                    OutlinedButton.icon(
+                      icon: Icon(Icons.star_outline),
+                      label: Text("OutlinedButton"),
+                      onPressed: () => print("it's pressed"),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(width: 2.0, color: Colors.blue),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32.0),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+
           ),
+          */
           SliverList(
             delegate: SliverChildListDelegate(
               <Widget>[
@@ -72,6 +130,155 @@ class _SliverAppBarSate extends State<SliverAppBarDesign3> {
         ],
       ),
     );
+  }
+
+  SliverPersistentHeader restuantSliverPersistentHeader() {
+    return SliverPersistentHeader(
+          pinned: false,
+          delegate: ResturantPersistentHeader(
+            widget: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Dosa Bhai Donia, Dhaka 11",
+                    style: TextStyle(
+                        color: black_color,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Text("From Deserts. cold Beverages. Juice..",
+                        style: TextStyle(color: gray_color, fontSize: 15)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: OutlinedButton.icon(
+                      icon: Icon(Icons.delivery_dining),
+                      label: Text(
+                        "Home Delivary",
+                        style: TextStyle(
+                            color: black_color,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () => print("it's pressed"),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(width: 1.0, color: grey_20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Text(
+                                  "*",
+                                  style: TextStyle(
+                                    color: star_color,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    "4.00",
+                                    style: TextStyle(
+                                      color: black_color,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Text(
+                              "28 Reviews",
+                              style: TextStyle(
+                                color: grey_700,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                            height: 30,
+                            child: VerticalDivider(color: grey_20)),
+                        Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Text(
+                                  "BDT",
+                                  style: TextStyle(
+                                    color: black_color,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    "40",
+                                    style: TextStyle(
+                                      color: black_color,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Text(
+                              "Delivery",
+                              style: TextStyle(
+                                color: gray_color,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                            height: 30,
+                            child: VerticalDivider(color: grey_20)),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "30-40",
+                              style: TextStyle(
+                                color: black_color,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                            Text(
+                              "Minutes",
+                              style: TextStyle(
+                                color: gray_color,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
   }
 }
 

@@ -61,27 +61,16 @@ class MyAppBar2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 10),
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "Dosa Bhai Donia, Dhaka",
-                      style: TextStyle(color: Colors.amber),
-                    ),
-                    Text("From Deserts. cold Beverages. Juice..",
-                        style: TextStyle(color: Colors.amber)),
-                  ],
-                ),
-              ),
-            ),
+          Text(
+            "Dosa Bhai Donia, Dhaka 11",
+            style: TextStyle(color: Colors.amber),
           ),
+          Text("From Deserts. cold Beverages. Juice..",
+              style: TextStyle(color: Colors.amber)),
         ],
       ),
     );
